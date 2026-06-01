@@ -14,7 +14,7 @@
 
     html, body {
       height: 100vh;
-      overflow: hidden; /* 禁止滚动，一屏展示 */
+      overflow: hidden; /* 禁止滚动，一屏完整展示 */
     }
 
     body {
@@ -25,7 +25,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* 外层主包裹 */
+    /* 外层主包裹容器 */
     .page-wrap {
       flex: 1;
       display: flex;
@@ -54,10 +54,7 @@
       line-height: 1.8;
       width: 84vw;
       margin: 0 auto;
-      /* 锁定仅两行，禁止浏览器自动换行 */
-      white-space: pre-line;
-      overflow: hidden;
-      height: calc(26px * 1.8 * 2);
+      white-space: pre; /* 识别代码内换行，不自动拆分 */
     }
 
     /* 区域3：发票数据独立容器 */
@@ -80,7 +77,7 @@
       color: #000000;
     }
 
-    /* 区域4：中间空白填充容器（核心，实现大片留白） */
+    /* 区域4：中间空白填充容器（实现截图大片留白） */
     .area-empty-space {
       flex: 1;
       min-height: 200px;
@@ -97,9 +94,7 @@
       line-height: 1.8;
       width: 84vw;
       margin: 0 auto;
-      white-space: pre-line;
-      overflow: hidden;
-      height: calc(22px * 1.8 * 2);
+      white-space: pre;
     }
 
     /* 底部手机Home指示条 */
@@ -124,7 +119,7 @@
       <h1 class="main-title">发票信息</h1>
     </div>
 
-    <!-- 区域2：顶部提示容器 -->
+    <!-- 区域2：顶部提示容器，严格两行文本 -->
     <div class="area-top-notice">
       <p class="top-notice-text">以下信息仅为发票二维码所含信息，并不
 代表查验发票真伪的结果。</p>
@@ -153,7 +148,7 @@
     <!-- 区域4：中间空白容器 -->
     <div class="area-empty-space"></div>
 
-    <!-- 区域5：底部提示容器 -->
+    <!-- 区域5：底部提示容器，严格两行文本 -->
     <div class="area-bottom-notice">
       <p class="bottom-notice-text">如需查验发票真伪，请通过税务机关提供的官方渠道
 进行查验。</p>
