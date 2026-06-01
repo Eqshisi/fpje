@@ -10,98 +10,99 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
+html, body {
+    height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #ffffff;
-    min-height: 100vh;
-    padding: 60px 30px;
+    background-color: #ffffff;
+}
+body {
     display: flex;
     flex-direction: column;
+    padding: 64px 32px;
 }
 
-/* 区块1：头部标题+顶部说明 */
-.block-header {
+/* 第一块容器：标题+顶部说明文字 */
+.box1 {
     text-align: center;
 }
-.block-header h1 {
-    font-size: 40px;
+.box1 h1 {
+    font-size: 42px;
     font-weight: bold;
-    margin-bottom: 32px;
     color: #000;
+    margin-bottom: 36px;
 }
-.block-header .top-tip {
-    font-size: 24px;
-    color: #666;
+.box1 .topText {
+    font-size: 26px;
+    color: #666666;
     line-height: 1.7;
 }
 
-/* 区块2：发票数据列表 */
-.block-data {
+/* 第二块容器：发票4行数据 */
+.box2 {
     margin-top: 100px;
 }
-.data-row {
+.dataLine {
     display: flex;
-    margin-bottom: 38px;
-    font-size: 24px;
+    margin-bottom: 40px;
+    font-size: 26px;
 }
-.data-label {
-    width: 150px;
-    color: #999;
+.dataLabel {
+    width: 152px;
+    color: #999999;
     flex-shrink: 0;
 }
-.data-value {
-    color: #000;
+.dataVal {
+    color: #000000;
 }
 
-/* 区块3：空白填充区域（核心！撑开中间空白） */
-.block-empty {
+/* 第三块容器：空白占位，撑起中间大片空白 */
+.boxEmpty {
     flex-grow: 1;
-    min-height: 220px;
 }
 
-/* 区块4：页尾底部提示 */
-.block-footer {
+/* 第四块容器：底部页尾提示文字 */
+.boxFooter {
     text-align: center;
-    font-size: 20px;
-    color: #999;
+    font-size: 22px;
+    color: #999999;
     line-height: 1.7;
 }
 </style>
 </head>
 <body>
-    <!-- 区块1：头部标题与顶部说明 -->
-    <div class="block-header">
+    <!-- 容器1：标题+顶部说明 -->
+    <div class="box1">
         <h1>发票信息</h1>
-        <p class="top-tip">
+        <p class="topText">
             以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。
         </p>
     </div>
 
-    <!-- 区块2：发票数据内容 -->
-    <div class="block-data">
-        <div class="data-row">
-            <span class="data-label">发票代码</span>
-            <span class="data-value">3300214130</span>
+    <!-- 容器2：发票数据列表 -->
+    <div class="box2">
+        <div class="dataLine">
+            <span class="dataLabel">发票代码</span>
+            <span class="dataVal">3300214130</span>
         </div>
-        <div class="data-row">
-            <span class="data-label">发票号码</span>
-            <span class="data-value">25423381</span>
+        <div class="dataLine">
+            <span class="dataLabel">发票号码</span>
+            <span class="dataVal">25423381</span>
         </div>
-        <div class="data-row">
-            <span class="data-label">合计金额</span>
-            <span class="data-value">¥784928.56(不含税)</span>
+        <div class="dataLine">
+            <span class="dataLabel">合计金额</span>
+            <span class="dataVal">¥784928.56(不含税)</span>
         </div>
-        <div class="data-row">
-            <span class="data-label">开票日期</span>
-            <span class="data-value">2023.08.04</span>
+        <div class="dataLine">
+            <span class="dataLabel">开票日期</span>
+            <span class="dataVal">2023.08.04</span>
         </div>
     </div>
 
-    <!-- 区块3：空白填充区域，实现页面中间大片留白 -->
-    <div class="block-empty"></div>
+    <!-- 容器3：空白区域（核心实现原图中间留白） -->
+    <div class="boxEmpty"></div>
 
-    <!-- 区块4：页面底部提示文字 -->
-    <div class="block-footer">
+    <!-- 容器4：页尾文字 -->
+    <div class="boxFooter">
         <p>
             如需查验发票真伪，请通过税务机关提供的官方渠道<br>进行查验。
         </p>
