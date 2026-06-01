@@ -2,50 +2,50 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 手机完美适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>发票信息</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            background: #fff;
+        html,body {
+            font-family: -apple-system,system-ui,sans-serif;
+            background: #ffffff;
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between px-6 py-14">
-    <!-- 主体内容区 -->
+<body class="px-10 py-20 min-h-screen flex flex-col justify-between">
+    <!-- 顶部标题与说明 -->
     <div>
-        <h1 class="text-4xl font-bold text-center mb-6">发票信息</h1>
-        <!-- 顶部说明文字 两行居中 -->
-        <p class="text-xl text-gray-500 text-center leading-relaxed mb-16">
+        <h1 class="text-[34px] font-bold text-center text-black mb-8">发票信息</h1>
+        <p class="text-[22px] text-gray-500 text-center leading-loose mb-20">
             以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。
         </p>
 
-        <!-- 发票信息列表 左浅灰标签 右黑色内容 -->
-        <div class="space-y-8">
-            <div class="flex items-center">
-                <span class="w-36 text-xl text-gray-400">发票代码</span>
-                <span class="text-xl text-black">3300214130</span>
+        <!-- 发票条目：左侧窄标签，左右间距紧凑，和第一张图一致 -->
+        <div class="space-y-9">
+            <div class="flex gap-x-4 items-center">
+                <span class="w-32 text-[22px] text-gray-400 shrink-0">发票代码</span>
+                <span class="text-[22px] text-black">3300214130</span>
             </div>
-            <div class="flex items-center">
-                <span class="w-36 text-xl text-gray-400">发票号码</span>
-                <span class="text-xl text-black">25423381</span>
+            <div class="flex gap-x-4 items-center">
+                <span class="w-32 text-[22px] text-gray-400 shrink-0">发票号码</span>
+                <span class="text-[22px] text-black">25423381</span>
             </div>
-            <div class="flex items-center">
-                <span class="w-36 text-xl text-gray-400">合计金额</span>
-                <span class="text-xl text-black">¥784928.56(不含税)</span>
+            <div class="flex gap-x-4 items-center">
+                <span class="w-32 text-[22px] text-gray-400 shrink-0">合计金额</span>
+                <span class="text-[22px] text-black">¥784928.56(不含税)</span>
             </div>
-            <div class="flex items-center">
-                <span class="w-36 text-xl text-gray-400">开票日期</span>
-                <span class="text-xl text-black">2023.08.04</span>
+            <div class="flex gap-x-4 items-center">
+                <span class="w-32 text-[22px] text-gray-400 shrink-0">开票日期</span>
+                <span class="text-[22px] text-black">2023.08.04</span>
             </div>
         </div>
     </div>
 
-    <!-- 底部提示小字 页面最下方 -->
-    <div class="mt-24">
-        <p class="text-lg text-gray-400 text-center leading-relaxed">
+    <!-- 底部小字，两行排版，匹配第一张截图 -->
+    <div class="mt-32">
+        <p class="text-[19px] text-gray-400 text-center leading-loose">
             如需查验发票真伪，请通过税务机关提供的官方渠道<br>进行查验。
         </p>
     </div>
