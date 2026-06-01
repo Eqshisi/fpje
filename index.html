@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- 微信视口强制禁止缩放 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>发票信息</title>
 <style>
 * {
@@ -10,18 +11,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --vh: 1vh;
+}
 html {
-    height: 100vh;
+    /* JS动态vh兜底 */
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
+    touch-action: none; /* 屏蔽触摸滚动 */
 }
 body {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #ffffff;
-    padding: 5vh 4vw;
+    font-family: PingFang SC, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    padding: calc(var(--vh,1vh)*5) 4vw;
 }
 
 /* 区域1：标题容器 */
@@ -34,26 +40,31 @@ body {
     color: #000;
 }
 
-/* 区域2：顶部说明文字容器 */
+/* 区域2：顶部提示文案容器（独立分区） */
 .area-top-tip {
-    margin-top: 4vh;
+    margin-top: calc(var(--vh,1vh)*4);
     text-align: center;
 }
 .top-text {
-    width: 80vw;
+    width: 82vw;
     margin: 0 auto;
     font-size: 4vw;
     color: #666;
-    line-height: 1.7;
+    line-height: 1.8;
+    /* 核心：只识别手动<br>，禁止微信自动换行 */
+    white-space: pre;
+    overflow: hidden;
+    /* 锁定两行高度，杜绝多出行数 */
+    height: calc(4vw * 1.8 * 2);
 }
 
 /* 区域3：发票数据容器 */
 .area-data {
-    margin-top: 7vh;
+    margin-top: calc(var(--vh,1vh)*7);
 }
 .data-item {
     display: flex;
-    margin-bottom: 4vh;
+    margin-bottom: calc(var(--vh,1vh)*4);
     font-size: 4vw;
 }
 .data-label {
@@ -65,39 +76,43 @@ body {
     color: #000;
 }
 
-/* 区域4：中间空白填充容器 */
+/* 区域4：中间空白填充容器（自适应留白） */
 .area-empty {
     flex: 1;
-    min-height: 15vh;
+    min-height: calc(var(--vh,1vh)*15);
 }
 
-/* 区域5：底部页尾提示容器 */
+/* 区域5：底部页尾提示容器（独立分区） */
 .area-bottom-tip {
     text-align: center;
 }
 .bottom-text {
-    width: 80vw;
+    width: 82vw;
     margin: 0 auto;
     font-size: 3.3vw;
     color: #999;
     line-height: 1.7;
+    white-space: pre;
+    overflow: hidden;
+    height: calc(3.3vw * 1.7 * 2);
 }
 </style>
 </head>
 <body>
-    <!-- 区域1：标题 -->
+    <!-- 区域1 标题 -->
     <div class="area-title">
         <h1>发票信息</h1>
     </div>
 
-    <!-- 区域2：顶部说明文案 -->
+    <!-- 区域2 顶部说明 独立容器 -->
     <div class="area-top-tip">
         <div class="top-text">
-            以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。
+以下信息仅为发票二维码所含信息，并不
+代表查验发票真伪的结果。
         </div>
     </div>
 
-    <!-- 区域3：发票数据列表 -->
+    <!-- 区域3 发票数据 -->
     <div class="area-data">
         <div class="data-item">
             <span class="data-label">发票代码</span>
@@ -117,14 +132,32 @@ body {
         </div>
     </div>
 
-    <!-- 区域4：空白占位区域 -->
+    <!-- 区域4 空白占位区 -->
     <div class="area-empty"></div>
 
-    <!-- 区域5：底部提示文案 -->
+    <!-- 区域5 底部提示 独立容器 -->
     <div class="area-bottom-tip">
         <div class="bottom-text">
-            如需查验发票真伪，请通过税务机关提供的官方渠道<br>进行查验。
+如需查验发票真伪，请通过税务机关提供的官方渠道
+进行查验。
         </div>
     </div>
+
+<script>
+// 修复微信100vh高度不准问题，动态计算真实视口高度
+function setRealVH() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+// 页面加载、窗口大小改变、横竖屏切换都重新计算
+setRealVH();
+window.addEventListener('resize', setRealVH);
+window.addEventListener('orientationchange', setRealVH);
+
+// 阻止微信下拉页面回弹、触摸滑动页面
+document.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+}, { passive: false });
+</script>
 </body>
 </html>
