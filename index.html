@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发票信息</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 适配手机端字体 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gray-desc {
+                color: #666666;
+            }
+            .text-gray-light {
+                color: #999999;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col justify-between py-16 px-8">
+    <!-- 主体发票信息区域 -->
+    <div class="w-full">
+        <h1 class="text-[32px] font-bold text-center text-black mb-6">发票信息</h1>
+        <p class="text-[22px] text-gray-desc text-center leading-relaxed mb-16">
+            以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。
+        </p>
+
+        <!-- 发票信息列表 -->
+        <div class="space-y-7 text-[20px]">
+            <div class="flex">
+                <span class="w-36 text-gray-light">发票代码</span>
+                <span class="text-black">3300214130</span>
+            </div>
+            <div class="flex">
+                <span class="w-36 text-gray-light">发票号码</span>
+                <span class="text-black">25424012</span>
+            </div>
+            <div class="flex">
+                <span class="w-36 text-gray-light">合计金额</span>
+                <span class="text-black">¥2431338.64(不含税)</span>
+            </div>
+            <div class="flex">
+                <span class="w-36 text-gray-light">开票日期</span>
+                <span class="text-black">2024.01.09</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部提示文字 -->
+    <div class="mt-20">
+        <p class="text-[18px] text-gray-light text-center leading-relaxed">
+            如需查验发票真伪，请通过税务机关提供的官方渠道<br>进行查验。
+        </p>
+    </div>
+</body>
+</html>
