@@ -10,79 +10,89 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    background: #ffffff;
-    padding: 70px 32px;
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #fff;
     min-height: 100vh;
+    padding: 80px 20px;
 }
-h1{
-    font-size: 42px;
+/* 整体内容居中容器，限制最大宽度，锁定文字换行 */
+.container {
+    max-width: 620px;
+    margin: 0 auto;
+}
+.main-title {
+    font-size: 44px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 36px;
     color: #000;
+    margin-bottom: 40px;
 }
-.top-desc{
-    font-size: 26px;
-    color: #666666;
+.top-text-box {
+    max-width: 540px;
+    margin: 0 auto 130px;
+    font-size: 27px;
+    color: #666;
     text-align: center;
-    line-height: 1.8;
-    margin-bottom: 120px;
+    line-height: 1.7;
 }
-.item-wrap{
-    margin-bottom: 42px;
+.info-row {
     display: flex;
     align-items: center;
+    margin-bottom: 45px;
 }
-.label{
-    width: 160px;
-    font-size: 26px;
-    color: #999999;
+.info-label {
+    width: 170px;
+    font-size: 27px;
+    color: #999;
     flex-shrink: 0;
 }
-.value{
-    font-size: 26px;
-    color: #000000;
+.info-value {
+    font-size: 27px;
+    color: #000;
 }
-.bottom-desc{
-    margin-top: 220px;
-    font-size: 22px;
-    color: #999999;
+.bottom-text-box {
+    max-width: 540px;
+    margin-top: 240px;
+    font-size: 23px;
+    color: #999;
     text-align: center;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 </style>
 </head>
 <body>
-    <h1>发票信息</h1>
-    <!-- 强制2行，和目标图完全一致 -->
-    <p class="top-desc">
-        以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。
-    </p>
+<div class="container">
+    <h1 class="main-title">发票信息</h1>
 
-    <div class="list">
-        <div class="item-wrap">
-            <span class="label">发票代码</span>
-            <span class="value">3300214130</span>
+    <!-- 固定宽度容器强制两行，不会多出第三行 -->
+    <div class="top-text-box">
+        以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。
+    </div>
+
+    <div class="info-list">
+        <div class="info-row">
+            <span class="info-label">发票代码</span>
+            <span class="info-value">3300214130</span>
         </div>
-        <div class="item-wrap">
-            <span class="label">发票号码</span>
-            <span class="value">25423381</span>
+        <div class="info-row">
+            <span class="info-label">发票号码</span>
+            <span class="info-value">25423381</span>
         </div>
-        <div class="item-wrap">
-            <span class="label">合计金额</span>
-            <span class="value">¥784928.56(不含税)</span>
+        <div class="info-row">
+            <span class="info-label">合计金额</span>
+            <span class="info-value">¥784928.56(不含税)</span>
         </div>
-        <div class="item-wrap">
-            <span class="label">开票日期</span>
-            <span class="value">2023.08.04</span>
+        <div class="info-row">
+            <span class="info-label">开票日期</span>
+            <span class="info-value">2023.08.04</span>
         </div>
     </div>
 
-    <!-- 强制2行，和目标图完全一致 -->
-    <p class="bottom-desc">
+    <!-- 底部文字同样锁定宽度，强制两行 -->
+    <div class="bottom-text-box">
         如需查验发票真伪，请通过税务机关提供的官方渠道<br>进行查验。
-    </p>
+    </div>
+</div>
 </body>
 </html>
