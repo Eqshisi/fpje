@@ -1,158 +1,143 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="description" content="发票信息" />
-  <title>发票信息</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
-      background-color: #FFFFFF;
-      display: flex;
-      flex-direction: column;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .page-wrap {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 80px 30px 0;
-    }
-
-    /* 区域1：标题 */
-    .area-title {
-      text-align: center;
-    }
-    .main-title {
-      font-size: 42px;
-      font-weight: bold;
-      color: #000000;
-    }
-
-    /* 区域2：顶部提示 */
-    .area-top-notice {
-      margin-top: 40px;
-      text-align: center;
-    }
-    .top-notice-text {
-      font-size: 26px;
-      color: #666666;
-      line-height: 1.8;
-      width: 84vw;
-      margin: 0 auto;
-      /* 删掉了height、overflow:hidden */
-    }
-
-    /* 区域3：发票列表 */
-    .area-data-list {
-      margin-top: 120px;
-    }
-    .data-row {
-      display: flex;
-      align-items: center;
-      margin-bottom: 45px;
-    }
-    .data-label {
-      font-size: 26px;
-      color: #999999;
-      width: 160px;
-      flex-shrink: 0;
-    }
-    .data-value {
-      font-size: 26px;
-      color: #000000;
-    }
-
-    /* 区域4：空白占位 */
-    .area-empty-space {
-      flex: 1;
-      min-height: 200px;
-    }
-
-    /* 区域5：底部提示 */
-    .area-bottom-notice {
-      text-align: center;
-      padding-bottom: 30px;
-    }
-    .bottom-notice-text {
-      font-size: 22px;
-      color: #999999;
-      line-height: 1.8;
-      width: 84vw;
-      margin: 0 auto;
-      /* 删掉了height、overflow:hidden、white-space */
-    }
-
-    .home-indicator {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0 8px;
-    }
-    .home-bar {
-      width: 134px;
-      height: 5px;
-      background: #000;
-      border-radius: 3px;
-    }
-  </style>
-</head>
-<body>
-  <div class="page-wrap">
-    <!-- 区域1：标题容器 -->
-    <div class="area-title">
-      <h1 class="main-title">发票信息</h1>
-    </div>
-
-    <!-- 区域2：顶部提示容器，使用br换行 -->
-    <div class="area-top-notice">
-      <p class="top-notice-text">以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。</p>
-    </div>
-
-    <!-- 区域3：发票数据容器 -->
-    <div class="area-data-list">
-      <div class="data-row">
-        <span class="data-label">发票代码</span>
-        <span class="data-value">3300214130</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="发票信息" />
+    <title>发票信息</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        height: 100%;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* 内容区域 */
+      .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px 0;
+      }
+      
+      /* 标题区 */
+      .title-section {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      
+      .main-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: #000000;
+        margin-bottom: 20px;
+      }
+      
+      .notice {
+        font-size: 14px;
+        color: #333333;
+        line-height: 1.6;
+        text-align: center;
+      }
+      
+      /* 发票信息 */
+      .info-section {
+        padding: 0 20px;
+      }
+      
+      .info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+      
+      .info-label {
+        font-size: 14px;
+        color: #666666;
+        flex-shrink: 0;
+      }
+      
+      .info-value {
+        font-size: 14px;
+        color: #000000;
+        text-align: right;
+      }
+      
+      /* 底部提示 */
+      .footer {
+        padding: 40px 20px 20px;
+        text-align: center;
+        margin-top: auto;
+      }
+      
+      .footer-text {
+        font-size: 12px;
+        color: #999999;
+        line-height: 1.6;
+      }
+      
+      /* 底部导航条 */
+      .home-indicator {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 8px 0 6px;
+      }
+      
+      .home-indicator-bar {
+        width: 134px;
+        height: 5px;
+        background-color: #000000;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="title-section">
+        <h1 class="main-title">发票信息</h1>
+        <p class="notice">以下信息仅为发票二维码所含信息，并不代表查验发票真伪的结果。</p>
       </div>
-      <div class="data-row">
-        <span class="data-label">发票号码</span>
-        <span class="data-value">25423381</span>
+      
+      <div class="info-section">
+        <div class="info-item">
+          <span class="info-label">发票代码</span>
+          <span class="info-value">3300214130</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">发票号码</span>
+          <span class="info-value">25423381</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">合计金额</span>
+          <span class="info-value">¥784928.56(不含税)</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">开票日期</span>
+          <span class="info-value">2023.08.04</span>
+        </div>
       </div>
-      <div class="data-row">
-        <span class="data-label">合计金额</span>
-        <span class="data-value">¥784928.56(不含税)</span>
-      </div>
-      <div class="data-row">
-        <span class="data-label">开票日期</span>
-        <span class="data-value">2023.08.04</span>
+      
+      <div class="footer">
+        <p class="footer-text">如需查验发票真伪，请通过税务机关提供的官方渠道进行查验。</p>
       </div>
     </div>
-
-    <!-- 区域4：中间空白容器 -->
-    <div class="area-empty-space"></div>
-
-    <!-- 区域5：底部提示容器，br换行 -->
-    <div class="area-bottom-notice">
-      <p class="bottom-notice-text">如需查验发票真伪，请通过税务机关提供的官方渠道<br>进行查验。</p>
+    
+    <div class="home-indicator">
+      <div class="home-indicator-bar"></div>
     </div>
-  </div>
-
-  <div class="home-indicator">
-    <div class="home-bar"></div>
-  </div>
-</body>
+  </body>
 </html>
