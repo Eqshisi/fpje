@@ -14,7 +14,7 @@
 
     html, body {
       height: 100vh;
-      overflow: hidden; /* 禁止滚动，一屏完整展示 */
+      overflow: hidden;
     }
 
     body {
@@ -25,7 +25,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* 外层主包裹容器 */
     .page-wrap {
       flex: 1;
       display: flex;
@@ -33,7 +32,7 @@
       padding: 80px 30px 0;
     }
 
-    /* 区域1：标题独立容器 */
+    /* 区域1：标题 */
     .area-title {
       text-align: center;
     }
@@ -43,7 +42,7 @@
       color: #000000;
     }
 
-    /* 区域2：顶部提示独立容器 */
+    /* 区域2：顶部提示 */
     .area-top-notice {
       margin-top: 40px;
       text-align: center;
@@ -54,10 +53,10 @@
       line-height: 1.8;
       width: 84vw;
       margin: 0 auto;
-      white-space: pre; /* 识别代码内换行，不自动拆分 */
+      /* 删掉了height、overflow:hidden */
     }
 
-    /* 区域3：发票数据独立容器 */
+    /* 区域3：发票列表 */
     .area-data-list {
       margin-top: 120px;
     }
@@ -77,13 +76,13 @@
       color: #000000;
     }
 
-    /* 区域4：中间空白填充容器（实现截图大片留白） */
+    /* 区域4：空白占位 */
     .area-empty-space {
       flex: 1;
       min-height: 200px;
     }
 
-    /* 区域5：底部提示独立容器 */
+    /* 区域5：底部提示 */
     .area-bottom-notice {
       text-align: center;
       padding-bottom: 30px;
@@ -94,10 +93,9 @@
       line-height: 1.8;
       width: 84vw;
       margin: 0 auto;
-      white-space: pre;
+      /* 删掉了height、overflow:hidden、white-space */
     }
 
-    /* 底部手机Home指示条 */
     .home-indicator {
       width: 100%;
       display: flex;
@@ -119,10 +117,9 @@
       <h1 class="main-title">发票信息</h1>
     </div>
 
-    <!-- 区域2：顶部提示容器，严格两行文本 -->
+    <!-- 区域2：顶部提示容器，使用br换行 -->
     <div class="area-top-notice">
-      <p class="top-notice-text">以下信息仅为发票二维码所含信息，并不
-代表查验发票真伪的结果。</p>
+      <p class="top-notice-text">以下信息仅为发票二维码所含信息，并不<br>代表查验发票真伪的结果。</p>
     </div>
 
     <!-- 区域3：发票数据容器 -->
@@ -148,14 +145,12 @@
     <!-- 区域4：中间空白容器 -->
     <div class="area-empty-space"></div>
 
-    <!-- 区域5：底部提示容器，严格两行文本 -->
+    <!-- 区域5：底部提示容器，br换行 -->
     <div class="area-bottom-notice">
-      <p class="bottom-notice-text">如需查验发票真伪，请通过税务机关提供的官方渠道
-进行查验。</p>
+      <p class="bottom-notice-text">如需查验发票真伪，请通过税务机关提供的官方渠道<br>进行查验。</p>
     </div>
   </div>
 
-  <!-- 底部Home条 -->
   <div class="home-indicator">
     <div class="home-bar"></div>
   </div>
